@@ -41,7 +41,7 @@ Use conformal projection when the map's main purpose involves measuring angles, 
 - Military maps
 - Weather maps
 
-<aside>
+<aside class="notes">
 Navigation charts (for plotting course bearings and wind direction)
 Weather maps (for showing the local direction in which weather systems are moving)
 </aside>
@@ -56,6 +56,6 @@ Equal-area projection: the size of any area on the map is in true proportion to 
 - The spatial extent of a categorical attribute (for example, land use maps)
 - Quantitative attributes by area (for example, gross domestic product by country)
 
-<aside>
+<aside class="notes">
 For localized measures, use local UTM: Universal Transverse Mercator is one of the most common nearly-global projected coordinate systems. The system divides the globe into 60 zones every six degrees of longitude. These zones run from pole to pole. Each zone has its own projection parameters to maximize accuracy. East-west measurements are made in meters from an origin local to the specific zone called the central meridian. North-south measurements are made in meters from the equator.
 </aside>

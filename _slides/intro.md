@@ -6,7 +6,7 @@
 ![]({{ site.baseurl }}/images/korea-wrong.png)  
 *[Source][korea]*
 
-<aside>
+<aside class="notes">
 One of the most famous mistakes, amongst academic geographers at least, is the Economist magazine’s article on the threat of missiles from North Korea.
 The first map they published, shown above, did not account for the fact that the world is spherical.
 It therefore massively underestimated the distance that North Korea’s missiles could travel.

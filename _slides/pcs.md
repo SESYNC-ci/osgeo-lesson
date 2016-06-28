@@ -27,7 +27,7 @@ All shapefiles (SHP) come with a PRJ file
 - You are making a map in which you want to preserve one or more of these properties: area, shape, distance, and direction.
 - You are making a small-scale map such as a national or world map. With a small-scale map, your choice of map projection determines the overall appearance of the map. For example, with some projections, lines of latitude and longitude will appear curved; with others, they will appear straight.
 
-<aside>
+<aside class="notes">
 Influence calculations
 Influence dimensions
 Influence appearance
@@ -39,5 +39,6 @@ Influence appearance
 
 Converts the earth's three-dimensional surface to a map's two-dimensional surface. This mathematical transformation is commonly referred to as a map projection. 
 
-|![]({{ site.baseurl }}/images/orange.png)|![]({{ site.baseurl }}/images/projections.png)|
-
+![]({{ site.baseurl }}/images/orange.png){:width="45%"}
+![]({{ site.baseurl }}/images/projections.png){:width="45%"}
+{:.vertical-align}
