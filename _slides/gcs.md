@@ -26,7 +26,7 @@ Lat/Lon is a coordinate system, but not a geographical coordinate system without
 
 - A datum is built on top of the selected spheroid, and it can incorporate local variations in elevation. 
 
-![][{{ site.baseurl }}/images/spheroid.png]
+![]({{ site.baseurl }}/images/spheroid.png)
 
 <aside>
 Although highly exaggerated, this graphic illustrates that the earth itself (the black line) is irregularly shaped. The blue spheroid works well in two areas, but not over the entire surface of the earth. The red spheroid works well in only one area, but it may be a better fit there than the blue spheroid. With the advent of global positioning systems (GPS), new datums and ellipsoids have been developed for the entire globe. 
@@ -45,7 +45,7 @@ Every map projection and coordinate system begins with a precisely surveyed star
 - Datum transformations
 - e.g. 'WGS84'
 
-![][{{ site.baseurl }}/images/datum.png]
+![]({{ site.baseurl }}/images/datum.png)
 
 <aside>
 The starting point and the network of points that extends from it is called the datum. 

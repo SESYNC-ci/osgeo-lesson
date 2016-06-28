@@ -12,7 +12,7 @@ Four spatial properties subject to distortion in PCS:
 - distance
 - direction
 
-![][{{ site.baseurl }}/images/circle.png]
+![]({{ site.baseurl }}/images/circle.png)
 
 <!--split-->
 
@@ -25,7 +25,7 @@ Four spatial properties subject to distortion in PCS:
 | Equidistant | Distance between one or two foci and every other point |
 | Azimuthal   | Direction from one of two points to every other point  |
 
-![][{{ site.baseurl }}/images/preserve.png]
+![]({{ site.baseurl }}/images/preserve.png)
 
 <!--split-->
 

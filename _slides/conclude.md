@@ -3,8 +3,8 @@
 
 ## How does this impact your spatial analysis?
 
-![][{{ site.baseurl }}/images/blur.png]
+![]({{ site.baseurl }}/images/blur.png)
 
 <!--split -->
 
-![][{{ site.baseurl }}/images/ArcMap.png]
+![]({{ site.baseurl }}/images/ArcMap.png)
