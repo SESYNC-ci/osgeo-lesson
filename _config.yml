@@ -16,6 +16,9 @@ slide_sorter:
   - title
   - intro
   - goals
+  - types
+  - gdal
+  - geos
   - gcs
   - pcs
   - distortion

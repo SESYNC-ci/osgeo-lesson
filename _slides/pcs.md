@@ -42,3 +42,11 @@ Converts the earth's three-dimensional surface to a map's two-dimensional surfac
 ![]({{ site.baseurl }}/images/orange.png){:width="45%"}
 ![]({{ site.baseurl }}/images/projections.png){:width="45%"}
 {:.vertical-align}
+
+<!--split-->
+
+GDAL Exercise Ideas
+
+- gdalwarp
+- ogr2ogr
+

@@ -59,3 +59,12 @@ Equal-area projection: the size of any area on the map is in true proportion to 
 <aside class="notes">
 For localized measures, use local UTM: Universal Transverse Mercator is one of the most common nearly-global projected coordinate systems. The system divides the globe into 60 zones every six degrees of longitude. These zones run from pole to pole. Each zone has its own projection parameters to maximize accuracy. East-west measurements are made in meters from an origin local to the specific zone called the central meridian. North-south measurements are made in meters from the equator.
 </aside>
+
+### How does this impact your spatial analysis?
+
+![]({{ site.baseurl }}/images/blur.png)
+
+<!--split-->
+
+![]({{ site.baseurl }}/images/ArcMap.png)
+
