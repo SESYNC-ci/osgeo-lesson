@@ -3,12 +3,13 @@
 
 ## Managing Geographical Data
 
-| **Raster** | **Vector** |
+| Raster     | Vector     |
 |------------+------------|
 | matrix     | table      |
 | surface    | shape      |
 | pixels     | features   |
 | bands      | attributes |
+{:.table}
   
 <!--split-->
 
