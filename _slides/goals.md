@@ -5,7 +5,7 @@
 
 - Compare Geographic and Project Coordinate Systems
 - Explore issues with projected data
-- Learn what makes geospatial analysis **free**
+- Learn about **free** geospatial analysis
 
 <!--split-->
 
