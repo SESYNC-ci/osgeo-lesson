@@ -1,12 +1,11 @@
 /* Card is used only at lessons */
 div.container.card {
-	background-color: white;
+    background-color: white;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 h1, h2 {
@@ -90,22 +89,6 @@ h6.panel {
     background-color: lightgray;
 }
 
-/* Highlighted changes in code. */
-.highlight {
-    background-color: mistyrose;
-}
-
-/* Manual input. */
-.in {
-    color: darkgreen;
-}
-
-/* Program output. */
-.out {
-    color: darkblue;
-    font-style: italic;
-}
-
 /* Putting shadows around things. */
 .shadow {
     -moz-box-shadow: 0 0 30px 5px #999;
@@ -157,8 +140,15 @@ article figcaption::before {
 
 /* Main body of pages. */
 body {
-    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
-    color: rgb(03, 03, 03);
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fdfdfd;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
 }
 
 body.workshop, body.lesson {
@@ -174,8 +164,7 @@ body.stylesheet {
 }
 
 /* Code sample */
-pre.sourceCode,
-pre.input {
+pre.sourceCode, pre.input {
     color: ForestGreen;
 }
 pre.output {
@@ -291,7 +280,10 @@ blockquote h2{
 }
 
 code {
-    color: #333333;
+    font-size: 15px;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    background-color: #eef;
 }
 
 /* Top banner of every page. */
