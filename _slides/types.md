@@ -27,7 +27,7 @@ Some raster formats are generic image formats, and can be opened with a system i
 - Shapefiles
 - TIGER
 - DLG
-- WKT (example of geometry)
-- GeoJSON (example of textual data)
+- WKT
+- GeoJSON
 
 Vector formats, even if the information is stored as plain text, need software to lay out the features as an image.

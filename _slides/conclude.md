@@ -3,11 +3,8 @@
 
 ## Summary
 
-[//]: # " Resources "
-[//]: # " http://earthobservatory.nasa.gov/IOTD/view.php?id=86458 "
-[//]: # " http://download.osgeo.org/gdal/workshop/ "
-[//]: # " http://www.geog.ucsb.edu/~pingel/Geog12/ "
-[//]: # " http://opengeoportal.org/software/resources/gdal-and-open-source-geoprocessing-tutorials/ "
-[//]: # " http://geoserver.geo-solutions.it/edu/en/raster_data/processing.html#process-in-bulk "
-[//]: # " https://trac.osgeo.org/gdal/wiki/UserDocs/RasterProcTutorial "
-[//]: # " https://live.osgeo.org/en/quickstart/gdal_quickstart.html "
+The open source stack has two essential libraries at the bottom: GDAL of reading, writing and translating raster and vector data, and GEOS for geometric calculations on vector data.
+
+We will move up the stack to software interacting with these libraries in the next lesson, but the command line utilities offered by GDAL are available for batch processing of spatial data using a shell script.
+
+Projections distort the world - be aware of the spatial reference system your spatial data employ. If possible, find spatial data in an appropriate PCS for your analysis or convert unprojected data with a known GCS to an appropriate PCS.

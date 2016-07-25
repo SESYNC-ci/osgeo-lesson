@@ -3,28 +3,26 @@
 
 ## Geographic Coordinate Systems (GCS)
 
-- Compare Geographic and Project Coordinate Systems
-- A geographic coordinate system (GCS) is a reference system that uses a three-dimensional spherical surface to identify points or areas on the surface of the earth. 
-  - an angular unit of measure
-  - a prime meridian
-  - a datum, which includes a spheroid
-- The angular unit of measure is usually degrees, in which the unit represents one part in 360 of a circle. 
-- The prime meridian defines the zero value for longitude, the equator defines zero value for latitude
-- The datum specifies the position of the sphere or spheroid relative to the center of the earth. It defines the origin and orientation of latitude and longitude lines.
+A geographic coordinate system (GCS) is a reference system that makes it possible to specify locations on the surface of the earth by a latitude and longitude.
 
-<aside class="notes">
-Lat/Lon is a coordinate system, but not a geographical coordinate system without a specified datum.
-</aside>
+An angular unit of measure
+: The angular unit of measure is usually a degree, or one 360th of a circle, and fractional degrees are usually specified as decimals.
+  
+A prime meridian
+: The location of 0° longitude, e.g. the Royal Observatory, Greenwich, UK
+
+A datum
+: An apprimation to the shape of the earth's surface **and** where (in the GCS being defined) certain fixed positions are located. A spheroid (a flattish sphere) is used to approximate this shape, and the reference positions anchor its surface to known points.
 
 <!--split-->
 
-### Spheroids
+### Spheroids and Geoids
 
-- The surface of the Earth's gravity field is called the geoid. The shape of the geoid is irregular, but overall, it is approximately the same as mean sea level. This is approximated with a spheroid.
+- Set an elipse on edge like a coin and spin it: the three dimensional shape you see is a spheroid. This is a simple geometric object.
 
-- Each spheroid approximates a specific geographic area.
+- A surface defined by the Earth's gravity field is called the geoid. The shape of the geoid is irregular, but overall, it approximates mean sea level (or where mean sea level would be without the continents).
 
-- A datum is built on top of the selected spheroid, and it can incorporate local variations in elevation. 
+- The geoid is related to a spheroid by it's height, which can be either positive or negative, on a straight line perpendicular to the spheroid. Note that this height is not the height of the ground, or elevation.
 
 ![]({{ site.baseurl }}/images/spheroid.png)
 
@@ -38,20 +36,17 @@ Spheroids create a totally smooth surface across the world, but because this doe
 
 ### Datum
 
-Every map projection and coordinate system begins with a precisely surveyed starting point.
+Every geographic coordinate system begins with a precisely surveyed starting point.
 
 - Provides a frame of reference for measuring relative position
-- Defines the origin and orientation of lat/lon lines.
+- Defines the origin and orientation for lines of latitude and longitude
 - Datum transformations
 - e.g. 'WGS84'
 
-![]({{ site.baseurl }}/images/datum.png)
+Question:
+: Examine the output of gdalinfo for `natural-earth.tif` again (see reminder below). What is the name of Geographic Coordinate System (GEOGCS)? What about the name of the spheroid? Are these different?
 
-<aside class="notes">
-The starting point and the network of points that extends from it is called the datum. 
-
-Although highly exaggerated, this graphic illustrates that the earth itself (the black line) is irregularly shaped. The blue spheroid works well in two areas, but not over the entire surface of the earth. The red spheroid works well in only one area, but it may be a better fit there than the blue spheroid. With the advent of global positioning systems (GPS), new datums and ellipsoids have been developed for the entire globe. WGS 84 is now accepted as a universal global datum.
-
-These examples are two common world spheroids in use today with their values rounded to the nearest meter. For each spheroid, the difference between its major axis and its minor axis is less than 0.34 percent.
-</aside>
-
+~~~
+gdalinfo natural-earth.tif
+~~~
+{:.input}
