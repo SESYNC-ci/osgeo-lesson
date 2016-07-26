@@ -44,17 +44,12 @@ Converts the earth's three-dimensional surface to a map's two-dimensional surfac
 Using GDALs ability to re-project raster images with `gdalwarp`, let's compare two rasters.
 
 ~~~
-gdalsrsinfo -o proj4 urban-areas.tif 
+gdalsrsinfo -o wkt urban-areas.tif > urban-area.prj
 ~~~
 {:.input}
 
 ~~~
-'+proj=longlat +datum=WGS84 +no_defs '
-~~~
-{:.output}
-
-~~~
-gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' westernfires_vir_2015231_geo.tif westernfires_vir_2015231_geo-prj.tif
+gdalwarp -t_srs urban-areas.prj westernfires_vir_2015231_geo.tif westernfires_vir_2015231_geo-prj.tif
 gdalinfo westernfires_vir_2015231_geo-prj.tif
 ~~~
 {:.input}
