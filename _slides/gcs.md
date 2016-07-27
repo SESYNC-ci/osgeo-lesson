@@ -24,6 +24,10 @@ A datum
 
 - The geoid is related to a spheroid by it's height, which can be either positive or negative, on a straight line perpendicular to the spheroid. Note that this height is not the height of the ground, or elevation.
 
+<!--split-->
+
+### Spheroids and Geoids
+
 ![]({{ site.baseurl }}/images/spheroid.png)
 
 <aside class="notes">

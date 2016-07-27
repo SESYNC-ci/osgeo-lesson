@@ -18,6 +18,8 @@ Supported Formats:
 ~~~
 {:.output}
 
+<!--split-->
+
 For historical reasons `gdal*` commands work with rasters, and `ogr*` commands work with vectors.
 
 ~~~
