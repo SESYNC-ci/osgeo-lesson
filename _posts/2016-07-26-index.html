@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>The Landscape of Spatial Data Tools</title>
+    <meta name="description" content="Introduction to the principles, and the open source stack, underlying geospatial analysis.">
+    
+    <link rel="canonical" href="/osgeo-lesson/">
+
+    <style type="text/css">
+      
+     /**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0; }
+
+/**
+ * Basic styling
+ */
+body {
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fdfdfd;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal; }
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+.highlight {
+    margin-bottom: 15px; }
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle; }
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block; }
+
+figcaption {
+    font-size: 14px; }
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: 30px; }
+
+li > ul,
+li > ol {
+    margin-bottom: 0; }
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+/**
+ * Links
+ */
+a {
+    color: #2a7ae2;
+    text-decoration: none; }
+a:visited {
+    color: #1756a9; }
+a:hover {
+    color: #111;
+    text-decoration: underline; }
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: #828282;
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic; }
+blockquote > :last-child {
+    margin-bottom: 0; }
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    background-color: #eef; }
+
+code {
+    padding: 1px 5px; }
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto; }
+pre > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0; }
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width: -webkit-calc(800px - (30px * 2));
+    max-width: calc(800px - (30px * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px; }
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+	max-width: -webkit-calc(800px - (30px));
+	max-width: calc(800px - (30px));
+	padding-right: 15px;
+	padding-left: 15px; } }
+
+/**
+ * Clearfix
+ */
+.wrapper:after, .footer-col-wrapper:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/**
+ * Icons
+ */
+.icon > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle; }
+
+.icon > svg path {
+    fill: #828282; }
+
+/**
+ * Site header
+ */
+.site-header {
+    border-top: 5px solid #424242;
+    border-bottom: 1px solid #e8e8e8;
+    min-height: 56px;
+    position: relative; }
+
+.site-title {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left; }
+.site-title, .site-title:visited {
+    color: #424242; }
+
+.site-nav {
+    float: right;
+    line-height: 56px; }
+.site-nav .menu-icon {
+    display: none; }
+.site-nav .page-link {
+    color: #111;
+    line-height: 1.5; }
+.site-nav .page-link:not(:last-child) {
+    margin-right: 20px; }
+@media screen and (max-width: 600px) {
+    .site-nav {
+	position: absolute;
+	top: 9px;
+	right: 15px;
+	background-color: #fdfdfd;
+	border: 1px solid #e8e8e8;
+	border-radius: 5px;
+	text-align: right; }
+    .site-nav .menu-icon {
+	display: block;
+	float: right;
+	width: 36px;
+	height: 26px;
+	line-height: 0;
+	padding-top: 10px;
+	text-align: center; }
+    .site-nav .menu-icon > svg {
+	width: 18px;
+	height: 15px; }
+    .site-nav .menu-icon > svg path {
+	fill: #424242; }
+    .site-nav .trigger {
+	clear: both;
+	display: none; }
+    .site-nav:hover .trigger {
+	display: block;
+	padding-bottom: 5px; }
+    .site-nav .page-link {
+	display: block;
+	padding: 5px 10px;
+	margin-left: 20px; }
+    .site-nav .page-link:not(:last-child) {
+	margin-right: 0; } }
+
+/**
+ * Site footer
+ */
+.site-footer {
+    border-top: 1px solid #e8e8e8;
+    padding: 30px 0; }
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: 15px; }
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0; }
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: #828282;
+    margin-left: -15px; }
+
+.footer-col {
+    float: left;
+    margin-bottom: 15px;
+    padding-left: 15px; }
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (30px / 2));
+    width: calc(35% - (30px / 2)); }
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (30px / 2));
+    width: calc(20% - (30px / 2)); }
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (30px / 2));
+    width: calc(45% - (30px / 2)); }
+
+@media screen and (max-width: 800px) {
+    .footer-col-1,
+    .footer-col-2 {
+	width: -webkit-calc(50% - (30px / 2));
+	width: calc(50% - (30px / 2)); }
+
+    .footer-col-3 {
+	width: -webkit-calc(100% - (30px / 2));
+	width: calc(100% - (30px / 2)); } }
+@media screen and (max-width: 600px) {
+    .footer-col {
+	float: none;
+	width: -webkit-calc(100% - (30px / 2));
+	width: calc(100% - (30px / 2)); } }
+/**
+ * Page content
+ */
+.page-content {
+    padding: 30px 0; }
+
+.page-heading {
+    font-size: 20px; }
+
+.post-list {
+    margin-left: 0;
+    list-style: none; }
+.post-list > li {
+    margin-bottom: 30px; }
+
+.post-meta {
+    font-size: 14px;
+    color: #828282; }
+
+.post-link {
+    display: block;
+    font-size: 24px; }
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: 30px; }
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1; }
+@media screen and (max-width: 800px) {
+    .post-title {
+	font-size: 36px; } }
+
+.post-content {
+    margin-bottom: 30px; }
+.post-content h2 {
+    font-size: 32px; }
+@media screen and (max-width: 800px) {
+    .post-content h2 {
+	font-size: 28px; } }
+.post-content h3 {
+    font-size: 26px; }
+@media screen and (max-width: 800px) {
+    .post-content h3 {
+	font-size: 22px; } }
+.post-content h4 {
+    font-size: 20px; }
+@media screen and (max-width: 800px) {
+    .post-content h4 {
+	font-size: 18px; } }
+
+/**
+ * Syntax highlighting styles
+ */
+.highlight {
+    background: #fff; }
+.highlighter-rouge .highlight {
+    background: #eef; }
+.highlight .c {
+    color: #998;
+    font-style: italic; }
+.highlight .err {
+    color: #a61717;
+    background-color: #e3d2d2; }
+.highlight .k {
+    font-weight: bold; }
+.highlight .o {
+    font-weight: bold; }
+.highlight .cm {
+    color: #998;
+    font-style: italic; }
+.highlight .cp {
+    color: #999;
+    font-weight: bold; }
+.highlight .c1 {
+    color: #998;
+    font-style: italic; }
+.highlight .cs {
+    color: #999;
+    font-weight: bold;
+    font-style: italic; }
+.highlight .gd {
+    color: #000;
+    background-color: #fdd; }
+.highlight .gd .x {
+    color: #000;
+    background-color: #faa; }
+.highlight .ge {
+    font-style: italic; }
+.highlight .gr {
+    color: #a00; }
+.highlight .gh {
+    color: #999; }
+.highlight .gi {
+    color: #000;
+    background-color: #dfd; }
+.highlight .gi .x {
+    color: #000;
+    background-color: #afa; }
+.highlight .go {
+    color: #888; }
+.highlight .gp {
+    color: #555; }
+.highlight .gs {
+    font-weight: bold; }
+.highlight .gu {
+    color: #aaa; }
+.highlight .gt {
+    color: #a00; }
+.highlight .kc {
+    font-weight: bold; }
+.highlight .kd {
+    font-weight: bold; }
+.highlight .kp {
+    font-weight: bold; }
+.highlight .kr {
+    font-weight: bold; }
+.highlight .kt {
+    color: #458;
+    font-weight: bold; }
+.highlight .m {
+    color: #099; }
+.highlight .s {
+    color: #d14; }
+.highlight .na {
+    color: #008080; }
+.highlight .nb {
+    color: #0086B3; }
+.highlight .nc {
+    color: #458;
+    font-weight: bold; }
+.highlight .no {
+    color: #008080; }
+.highlight .ni {
+    color: #800080; }
+.highlight .ne {
+    color: #900;
+    font-weight: bold; }
+.highlight .nf {
+    color: #900;
+    font-weight: bold; }
+.highlight .nn {
+    color: #555; }
+.highlight .nt {
+    color: #000080; }
+.highlight .nv {
+    color: #008080; }
+.highlight .ow {
+    font-weight: bold; }
+.highlight .w {
+    color: #bbb; }
+.highlight .mf {
+    color: #099; }
+.highlight .mh {
+    color: #099; }
+.highlight .mi {
+    color: #099; }
+.highlight .mo {
+    color: #099; }
+.highlight .sb {
+    color: #d14; }
+.highlight .sc {
+    color: #d14; }
+.highlight .sd {
+    color: #d14; }
+.highlight .s2 {
+    color: #d14; }
+.highlight .se {
+    color: #d14; }
+.highlight .sh {
+    color: #d14; }
+.highlight .si {
+    color: #d14; }
+.highlight .sx {
+    color: #d14; }
+.highlight .sr {
+    color: #009926; }
+.highlight .s1 {
+    color: #d14; }
+.highlight .ss {
+    color: #990073; }
+.highlight .bp {
+    color: #999; }
+.highlight .vc {
+    color: #008080; }
+.highlight .vg {
+    color: #008080; }
+.highlight .vi {
+    color: #008080; }
+.highlight .il {
+    color: #099; }
+
+/* Table */
+
+table {
+    margin-bottom: 15px;
+}
+
+table th, table td {
+    padding: 5px 10px;
+}
+
+table > thead > .header {
+    background: transparent;
+}
+
+table > thead > tr > td, table > thead > tr > th,
+table > tbody > tr > td, table > tbody > tr > th,
+table > tfoot > tr > td, table > tfoot > tr > th {
+    border: 1px solid #DDD;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+    border-bottom-width: 2px;
+}
+
+table tbody > tr:nth-of-type(2n+1) {
+    background-color: #F9F9F9;
+}
+
+
+      
+     p.captioned {
+	 text-align: center;
+     }
+     
+     .captioned em {
+	 font-size: 0.6em;
+     }
+     
+     .ToS {
+	 text-align: right;
+     }
+     
+     .input.highlighter-rouge pre {
+	 background-color: #EBECE4;
+     }
+
+     .input.highlighter-rouge code {
+	 background-color: transparent;
+     }
+
+     .output.highlighter-rouge pre {
+	 background-color: #ECECC7;
+     }
+
+     .output.highlighter-rouge code {
+	 background-color: transparent;
+     }
+     
+     dt {
+	 font-weight: 500;
+     }
+
+     dd {
+	 margin-left: 22px;
+     }
+     
+    </style>
+    
+</head>
+
+  
+  <body>
+
+    <div class="page-content">
+      <div class="wrapper">
+        
+<p><a name="/slides/title"></a></p>
+
+<h1 id="the-landscape-of-spatial-data-tools">The Landscape of Spatial Data Tools</h1>
+
+<p>Instructor: Kelly Hondula</p>
+
+<p>GIS software is designed to capture, manage, analyze, and display (on a map!) all forms of geographically referenced information. Before diving deep into software, we review basic concepts for geographical data and the associated open source tools.</p>
+
+<p class="ToS"><a href="#/slides/title">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/intro"></a></p>
+
+<h2 id="geographical-data">Geographical Data</h2>
+
+<p>Breaking down these uses of GIS, we find the usual components of any data driven project. The strong emphais on <em>geographical</em> marks the special attention that spatial attributes of data require.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>capture</strong></td>
+      <td>record data with sufficient context to be useful</td>
+    </tr>
+    <tr>
+      <td><strong>manage</strong></td>
+      <td>work with vast amounts of data, often captured in different contexts</td>
+    </tr>
+    <tr>
+      <td><strong>analyze</strong></td>
+      <td>rely on the inherent spatial relationships between data</td>
+    </tr>
+    <tr>
+      <td><strong>display</strong></td>
+      <td>conveniently display data in its native form (on a map!)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--split-->
+
+<h3 id="so-what">So What?</h3>
+
+<p><img src="/osgeo-lesson/images/korea-wrong.png" alt="" /><br />
+<em><a href="http://spatial.ly/2011/01/geographical-mistakes-keeping-geographers-busy/">Source</a></em></p>
+
+<aside class="notes">
+One of the most famous mistakes, amongst academic geographers at least, was an article in the Economist magazine on the threat of missiles from North Korea.
+The first map they published, shown above, did not account for the fact that the world is spherical.
+It massively underestimated the reach of the North Korean missile designs.
+The corrected version is shown below, using the proper interpretation of the same missile-ranges.
+</aside>
+
+<!--split-->
+
+<p><img src="/osgeo-lesson/images/korea-right.png" alt="" /><br />
+<em><a href="http://spatial.ly/2011/01/geographical-mistakes-keeping-geographers-busy/">Source</a></em></p>
+
+<!--split-->
+
+<h3 id="why-open-source">Why Open Source</h3>
+
+<ul>
+  <li>Pros
+    <ul>
+      <li>Reproducible research principle (no proprietary code)</li>
+      <li>Affordable for researchers</li>
+      <li>Ease of licensing</li>
+      <li>Friendly user community</li>
+      <li>Available on multiple platforms (e.g. Windows, Linux, Mac)</li>
+    </ul>
+  </li>
+  <li>Cons
+    <ul>
+      <li>Fewer training resources</li>
+      <li>Less integration (Pro?)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The excellent and canonical alternative is <a href="http://www.esri.com/software/arcgis">ESRI’s ArcGIS platform</a>.</p>
+
+<p class="ToS"><a href="#/slides/intro">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/goals"></a></p>
+
+<h2 id="objectives-for-this-lesson">Objectives for this lesson</h2>
+
+<ul>
+  <li>Discover <strong>free</strong> geospatial analysis</li>
+  <li>Meet the libraries for reading and writing spatial data</li>
+  <li>Compare geographic and projected coordinate systems</li>
+  <li>Understand distortion in projected data</li>
+</ul>
+
+<!--split-->
+
+<h2 id="specific-achievements">Specific achievements</h2>
+
+<ul>
+  <li>Identify the coordinate system of raster and vector data files</li>
+  <li>Crop and resize raster data</li>
+  <li>Rasterize vector data</li>
+  <li>Transform raster data between projections</li>
+  <li>Do all this on the command line</li>
+</ul>
+
+<p class="ToS"><a href="#/slides/goals">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/types"></a></p>
+
+<h2 id="managing-geographical-data">Managing Geographical Data</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Raster</th>
+      <th>Vector</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>matrix</td>
+      <td>table</td>
+    </tr>
+    <tr>
+      <td>surface</td>
+      <td>shape</td>
+    </tr>
+    <tr>
+      <td>pixels</td>
+      <td>features</td>
+    </tr>
+    <tr>
+      <td>bands</td>
+      <td>attributes</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--split-->
+
+<h3 id="raster-file-formats">Raster File Formats</h3>
+
+<ul>
+  <li>GeoTIFF</li>
+  <li>netCDF</li>
+</ul>
+
+<p>Some raster formats are generic image formats, and can be opened with a system image viewer or inserted into documents as images.</p>
+
+<!--split-->
+
+<h3 id="vector-file-formats">Vector File Formats</h3>
+
+<ul>
+  <li>Shapefiles</li>
+  <li>TIGER</li>
+  <li>DLG</li>
+  <li>WKT</li>
+  <li>GeoJSON</li>
+</ul>
+
+<p>Vector formats, even if the information is stored as plain text, need software to lay out the features as an image.</p>
+
+<p class="ToS"><a href="#/slides/types">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/gdal"></a></p>
+
+<h3 id="geospatial-data-abstraction-library-gdal">Geospatial Data Abstraction Library (GDAL)</h3>
+
+<p>GDAL interprets between a vast collection of storage formats and applications that read or write spatial data. It has a single abstract data model for rasters, and another for vector data. Because GDAL knows all about different formats, it includes many tools for translating and processing geographical data.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdalinfo --formats
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>Supported Formats:
+  VRT (rw+v): Virtual Raster
+  GTiff (rw+vs): GeoTIFF
+  NITF (rw+vs): National Imagery Transmission Format
+  ...
+</code></pre>
+</div>
+
+<!--split-->
+
+<p>For historical reasons <code class="highlighter-rouge">gdal*</code> commands work with rasters, and <code class="highlighter-rouge">ogr*</code> commands work with vectors.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>ogrinfo --formats
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>
+Supported Formats:
+  -&gt; "ESRI Shapefile" (read/write)
+  -&gt; "MapInfo File" (read/write)
+  -&gt; "UK .NTF" (readonly)
+  ...
+</code></pre>
+</div>
+
+<!--split-->
+
+<h3 id="looking-at-metadata-rasters">Looking at Metadata (Rasters)</h3>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>cd %sandbox%
+cd data
+gdalinfo natural-earth.tif
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>Driver: GTiff/GeoTIFF
+Files: natural-earth.tif
+Size is 8100, 4050
+Coordinate System is:
+GEOGCS["WGS 84",
+  DATUM["WGS_1984",
+    SPHEROID["WGS 84",6378137,298.257223563,
+      AUTHORITY["EPSG","7030"]],
+    AUTHORITY["EPSG","6326"]],
+  PRIMEM["Greenwich",0],
+  UNIT["degree",0.0174532925199433],
+    AUTHORITY["EPSG","4326"]]
+Origin = (-180.000000000000000,90.000000000000000)
+Pixel Size = (0.044444444444440,-0.044444444444440)
+Metadata:
+  AREA_OR_POINT=Area
+  TIFFTAG_DATETIME=2014:10:18 11:51:41
+  TIFFTAG_RESOLUTIONUNIT=2 (pixels/inch)
+  TIFFTAG_SOFTWARE=Adobe Photoshop CC 2014 (Macintosh)
+  TIFFTAG_XRESOLUTION=72
+  TIFFTAG_YRESOLUTION=72
+Image Structure Metadata:
+  COMPRESSION=LZW
+  INTERLEAVE=PIXEL
+Corner Coordinates:
+Upper Left  (-180.0000000,  90.0000000) (180d 0' 0.00"W, 90d 0' 0.00"N)
+Lower Left  (-180.0000000, -90.0000000) (180d 0' 0.00"W, 90d 0' 0.00"S)
+Upper Right ( 180.0000000,  90.0000000) (180d 0' 0.00"E, 90d 0' 0.00"N)
+Lower Right ( 180.0000000, -90.0000000) (180d 0' 0.00"E, 90d 0' 0.00"S)
+Center      (  -0.0000000,   0.0000000) (  0d 0' 0.00"W,  0d 0' 0.00"N)
+Band 1 Block=256x256 Type=Byte, ColorInterp=Red
+Band 2 Block=256x256 Type=Byte, ColorInterp=Green
+Band 3 Block=256x256 Type=Byte, ColorInterp=Blue															
+</code></pre>
+</div>
+
+<!--split-->
+
+<h3 id="looking-at-metadata-vectors">Looking at Metadata (Vectors)</h3>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>ogrinfo -ro -so ne_10m_urban_areas
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>INFO: Open of `ne_10m_urban_areas'
+  using driver `ESRI Shapefile' successful.
+1: ne_10m_urban_areas (Polygon)
+</code></pre>
+</div>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>ogrinfo -ro -so ne_10m_urban_areas ne_10m_urban_areas
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>INFO: Open of `ne_10m_urban_areas'
+using driver `ESRI Shapefile' successful.
+	  
+Layer name: ne_10m_urban_areas
+Geometry: Polygon
+Feature Count: 11878
+Extent: (-157.991183, -51.053037) - (178.033834, 69.769855)
+Layer SRS WKT:
+GEOGCS["GCS_WGS_1984",
+  DATUM["WGS_1984",
+    SPHEROID["WGS_84",6378137.0,298.257223563]],
+  PRIMEM["Greenwich",0.0],
+  UNIT["Degree",0.017453292519943295]]
+scalerank: Integer (10.0)
+featurecla: String (50.0)
+area_sqkm: Real (13.3)
+</code></pre>
+</div>
+
+<!--split-->
+
+<h3 id="translation">Translation</h3>
+
+<p>In addition to reading spatial data in all those formats, GDAL provides capabilities for writing data in new formats.
+Translations can also occur between the same format with a step that modifies the data or metadata.</p>
+
+<p>Write metadata about a raster object that is missing from the <code class="highlighter-rouge">world.png</code> raster.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdal_translate -a_srs WGS84 -a_ullr -180 90 180 -90 world.png geoworld.tif
+</code></pre>
+</div>
+
+<dl>
+  <dt>Question</dt>
+  <dd>Compare the output of <code class="highlighter-rouge">gdalinfo</code> for the original <code class="highlighter-rouge">world.png</code> and new <code class="highlighter-rouge">geoworld.tif</code> raster files. What did the “corner coordinates” property of the PNG file correspond to before translation? And after translation?</dd>
+</dl>
+
+<!--split-->
+
+<p>The spatial data processing tools provided by GDAL are executed by giving “arguments” to the gdal_translate, which take the form <code class="highlighter-rouge">-flag param1 param2 ...</code>, which is how most command line utilities work.</p>
+
+<p>The flag <code class="highlighter-rouge">-outsize</code> takes two parameters for the horizontal and vertical output size (optionally as percentages of the input size) in pixels.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdal_translate -outsize 10% 10% geoworld.tif geoworld-small.tif
+</code></pre>
+</div>
+
+<!--split-->
+
+<p>The flag <code class="highlighter-rouge">-projwin</code> takes four parameters that specify the new corners of the output file, giving a subwindow of the input file.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdal_translate -projwin -180 90 0 0 geoworld.tif geonw.tif
+</code></pre>
+</div>
+
+<dl>
+  <dt>Exercise</dt>
+  <dd>Choose coordinates that bound your home state or country, and create a new file called <code class="highlighter-rouge">natural-earth-home.tif</code> that only includes that area of the <code class="highlighter-rouge">natural-earth.tif</code>. The order of parameters is upper left “x”, upper left “y”, lower right “x”, lower right “y”.</dd>
+  <dt>Question</dt>
+  <dd>Why bother with this approach over cropping the image with an image editor?</dd>
+</dl>
+
+<!--split-->
+
+<h3 id="conversion">Conversion</h3>
+
+<p>Here’s a handy little utility. Ever want to quickly peek at a shapefile? Why not convert it to a raster at the command line?</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdal_rasterize -ot Byte -burn 255 -tr 0.01 0.01 -l ne_10m_urban_areas ne_10m_urban_areas urban-areas.tif
+</code></pre>
+</div>
+
+<dl>
+  <dt>Exercise</dt>
+  <dd>Examin the metadata of <code class="highlighter-rouge">urban-areas.tif</code> using the <code class="highlighter-rouge">-stats</code> flag. This provides additional information, but does it look right? <code class="highlighter-rouge">gdal_rasterize</code> is very literal, it set polygons to 255 and everything else to 0, whereas areas outside the polygons might be more appropriately set to “Null”. <a href="http://www.gdal.org/gdalinfo.html">Read the docs</a> to decide how it can be done. Try to re-create the raster so that the mean value is 255.</dd>
+</dl>
+
+<p class="ToS"><a href="#/slides/gdal">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/geos"></a></p>
+
+<h2 id="geometry-engine-open-source-geos">Geometry Engine Open Source (GEOS)</h2>
+
+<p>GEOS works on vectors, also known as geometric objects, and adds advanced GIS functionalities (topological operations) to complement the essential reading, writing and translating utilities in GDAL.</p>
+
+<p>Like GDAL, GEOS is primarily intended to be a library used by other software.
+Unlike GDAL, GEOS does not provide its own collection of command line utilities (like <code class="highlighter-rouge">gdalinfo</code>).</p>
+
+<!--split-->
+
+<p>One piece of software using GEOS is PostgreSQL with the PostGIS extension.</p>
+
+<p>Log back into <a href="http://pgstudio.research.sesync.org">http://pgstudio.research.sesync.org</a></p>
+
+<p><img src="/osgeo-lesson/images/pgstudio-login.png" alt="" /></p>
+
+<!--split-->
+
+<p>In the SQL window we can execute PostGIS functions that rely on the GEOS libary.
+A simple example is the function <code class="highlighter-rouge">ST_Length</code>, where ST indicates the function accepts spatial types as arguments.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>SELECT ST_Length(ST_GeomFromText('LINESTRING(0 0, 1 1)'));
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>    st_length
+-----------------
+1.4142135623731
+(1 row)
+</code></pre>
+</div>
+
+<!--split-->
+
+<p>A very common vector operation in spatial analysis is to create a buffer around a spatial object.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>SELECT ST_AsText(ST_Buffer(ST_GeomFromText('POINT(0 0)'), 1, 1));
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>    st_astext_
+----------------
+POLYGON((1 0, 0 -1, -1 0, 0 1, 1 0))
+</code></pre>
+</div>
+
+<dl>
+  <dt>Exercise</dt>
+  <dd>Calculate an approximation to Pi, the ratio of a circle’s circumference to its diamter,  using GEOS functionality built into PostGIS. The function <code class="highlighter-rouge">ST_Perimeter</code> gives you the length of the perimiter of a polygon.</dd>
+</dl>
+
+<!--split-->
+
+<p>Naturally, this is all more interesting with actual data.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>SELECT id, ST_AsText(ST_Transform(restaurants.geom, 4326))
+FROM ch01.restaurants
+JOIN ch01.highways
+ON ST_Intersects(
+    ST_Buffer(restaurants.geom, 100), highways.geom)
+WHERE feature like '%Toll Road';
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code> id   |        st_astext
+------+-------------------------
+22310 | POINT(-75.2094 40.6943)
+25011 | POINT(-121.499 45.7115)
+(2 rows)
+</code></pre>
+</div>
+
+<dl>
+  <dt>Question</dt>
+  <dd>Has anybody actually got an answer? Thirty simultaneous spatial queries might be a bit much for our toy server.</dd>
+</dl>
+
+<p class="ToS"><a href="#/slides/geos">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/gcs"></a></p>
+
+<h2 id="geographic-coordinate-systems-gcs">Geographic Coordinate Systems (GCS)</h2>
+
+<p>A geographic coordinate system (GCS) is a reference system that makes it possible to specify locations on the surface of the earth by a latitude and longitude.</p>
+
+<dl>
+  <dt>An angular unit of measure</dt>
+  <dd>The angular unit of measure is usually a degree, or one 360th of a circle, and fractional degrees are usually specified as decimals.</dd>
+  <dt>A prime meridian</dt>
+  <dd>The location of 0° longitude, e.g. the Royal Observatory, Greenwich, UK</dd>
+  <dt>A datum</dt>
+  <dd>An apprimation to the shape of the earth’s surface <strong>and</strong> where (in the GCS being defined) certain fixed positions are located. A spheroid (a flattish sphere) is used to approximate this shape, and the reference positions anchor its surface to known points.</dd>
+</dl>
+
+<!--split-->
+
+<h3 id="spheroids-and-geoids">Spheroids and Geoids</h3>
+
+<ul>
+  <li>
+    <p>Set an elipse on edge like a coin and spin it: the three dimensional shape you see is a spheroid. This is a simple geometric object.</p>
+  </li>
+  <li>
+    <p>A surface defined by the Earth’s gravity field is called the geoid. The shape of the geoid is irregular, but overall, it approximates mean sea level (or where mean sea level would be without the continents).</p>
+  </li>
+  <li>
+    <p>The geoid is related to a spheroid by it’s height, which can be either positive or negative, on a straight line perpendicular to the spheroid. Note that this height is not the height of the ground, or elevation.</p>
+  </li>
+</ul>
+
+<!--split-->
+
+<h3 id="spheroids-and-geoids-1">Spheroids and Geoids</h3>
+
+<p><img src="/osgeo-lesson/images/spheroid.png" alt="" /></p>
+
+<aside class="notes">
+Although highly exaggerated, this graphic illustrates that the earth itself (the black line) is irregularly shaped. The blue spheroid works well in two areas, but not over the entire surface of the earth. The red spheroid works well in only one area, but it may be a better fit there than the blue spheroid. With the advent of global positioning systems (GPS), new datums and ellipsoids have been developed for the entire globe. 
+
+Spheroids create a totally smooth surface across the world, but because this does not reflect reality very well, this ability of a local datum to incorporate local variations in elevation is important.
+</aside>
+
+<!--split-->
+
+<h3 id="datum">Datum</h3>
+
+<p>Every geographic coordinate system begins with a precisely surveyed starting point.</p>
+
+<ul>
+  <li>Provides a frame of reference for measuring relative position</li>
+  <li>Defines the origin and orientation for lines of latitude and longitude</li>
+  <li>Datum transformations</li>
+  <li>e.g. ‘WGS84’</li>
+</ul>
+
+<dl>
+  <dt>Question:</dt>
+  <dd>Examine the output of gdalinfo for <code class="highlighter-rouge">natural-earth.tif</code> again (see reminder below). What is the name of Geographic Coordinate System (GEOGCS)? What about the name of the spheroid? Are these different?</dd>
+</dl>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdalinfo natural-earth.tif
+</code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/gcs">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/pcs"></a></p>
+
+<h2 id="projected-coordinate-systems-pcs">Projected Coordinate Systems (PCS)</h2>
+
+<ul>
+  <li>A projected coordinate system (PCS) is defined on a flat, two-dimensional surface.</li>
+  <li>Unlike a geographic coordinate system, a projected coordinate system has constant lengths, angles, and areas across the two dimensions.</li>
+  <li>If you allow height above the flat surface, then you can locate any point in three dimensions with x, y, and z coordinates (these are not coordinates in Space!)</li>
+</ul>
+
+<!--split-->
+
+<p>A projected coordinate system is defined by four components:</p>
+
+<ul>
+  <li>a geographic coordinate system</li>
+  <li>a map projection</li>
+  <li>any parameters needed by the map projection</li>
+  <li>a linear unit of measure (such as feet or meters)</li>
+</ul>
+
+<dl>
+  <dt>Question</dt>
+  <dd>What GCS is used in <code class="highlighter-rouge">westernfires_vir_2015231_geo.tif</code>? What is the map projection?</dd>
+</dl>
+
+<!--split-->
+
+<h3 id="why-use-a-projected-coordinate-system">Why use a projected coordinate system?</h3>
+
+<ul>
+  <li>
+    <p>Lat/lon is good system for storing spatial data, but areas and distances must be explicitly calculated on a curved surface.</p>
+  </li>
+  <li>
+    <p>You are making a map in which you want to preserve one or more of these properties: area, shape, distance, and direction.</p>
+  </li>
+  <li>
+    <p>You are making a small-scale map such as a national or world map. With a small-scale map, your choice of map projection determines the overall appearance of the map. For example, with some projections, lines of latitude and longitude will appear curved; with others, they will appear straight.</p>
+  </li>
+</ul>
+
+<!--split-->
+
+<h3 id="map-projections">Map Projections</h3>
+
+<p>Converts the earth’s three-dimensional surface to a map’s two-dimensional surface. This mathematical transformation is commonly referred to as a map projection.</p>
+
+<p class="vertical-align"><img src="/osgeo-lesson/images/orange.png" alt="" width="45%" />
+<img src="/osgeo-lesson/images/projections.png" alt="" width="45%" /></p>
+
+<!--split-->
+
+<p>Using GDALs ability to re-project raster images with <code class="highlighter-rouge">gdalwarp</code>, let’s compare two rasters.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdalsrsinfo -o wkt urban-areas.tif &gt; urban-area.prj
+</code></pre>
+</div>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdalwarp -t_srs urban-areas.prj westernfires_vir_2015231_geo.tif westernfires_vir_2015231_geo-prj.tif
+gdalinfo westernfires_vir_2015231_geo-prj.tif
+</code></pre>
+</div>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>gdal_translate -projwin -139.2611826 57.8698551 -80.7311826 22.2398551 urban-areas.tif urban-areas-west.tif
+</code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/pcs">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/distortion"></a></p>
+
+<h2 id="distortion">Distortion</h2>
+
+<p>Projected coordinate systems – they distort the world.</p>
+
+<p>Four spatial properties subject to distortion in PCS:</p>
+
+<ul>
+  <li>shape</li>
+  <li>area</li>
+  <li>distance</li>
+  <li>direction</li>
+</ul>
+
+<!--split-->
+
+<p>The most recognizable distortion is the result of treating latitude and longitude values as if they were the “x” and “y” values of a projected coordinate system.</p>
+
+<p><img src="/osgeo-lesson/images/circle.png" alt="" /></p>
+
+<!--split-->
+
+<h3 id="choose-projections-wisely">Choose Projections Wisely!</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Feature that is Preserved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Conformal</td>
+      <td>Shape</td>
+    </tr>
+    <tr>
+      <td>Equal Area</td>
+      <td>Area</td>
+    </tr>
+    <tr>
+      <td>Equidistant</td>
+      <td>Distance between one or two foci and every other point</td>
+    </tr>
+    <tr>
+      <td>Azimuthal</td>
+      <td>Direction from one of two points to every other point</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/osgeo-lesson/images/preserve.png" alt="" /></p>
+
+<!--split-->
+
+<h3 id="projections-that-preserve-shape">Projections that Preserve Shape</h3>
+
+<p>Conformal projection: all local angles measured from a point are correct and all local shapes are true.</p>
+
+<p>Use conformal projection when the map’s main purpose involves measuring angles, showing accurate local directions, or representing the shapes of features or contour lines. This category includes:</p>
+
+<ul>
+  <li>Topographic maps and cadastral (land parcel) maps</li>
+  <li>Navigation charts</li>
+  <li>Civil engineering maps</li>
+  <li>Military maps</li>
+  <li>Weather maps</li>
+</ul>
+
+<aside class="notes">
+Navigation charts (for plotting course bearings and wind direction)
+Weather maps (for showing the local direction in which weather systems are moving)
+</aside>
+
+<!--split-->
+
+<h3 id="projections-that-preserve-area">Projections that Preserve Area</h3>
+
+<p>Equal-area projection: the size of any area on the map is in true proportion to its size on the earth. You should use equal-area projections to show:</p>
+
+<ul>
+  <li>The density of an attribute with dots (for example, population density)</li>
+  <li>The spatial extent of a categorical attribute (for example, land use maps)</li>
+  <li>Quantitative attributes by area (for example, gross domestic product by country)</li>
+</ul>
+
+<aside class="notes">
+For localized measures, use local UTM: Universal Transverse Mercator is one of the most common nearly-global projected coordinate systems. The system divides the globe into 60 zones every six degrees of longitude. These zones run from pole to pole. Each zone has its own projection parameters to maximize accuracy. East-west measurements are made in meters from an origin local to the specific zone called the central meridian. North-south measurements are made in meters from the equator.
+</aside>
+
+<!--split-->
+
+<h3 id="how-does-this-impact-your-spatial-analysis">How does this impact your spatial analysis?</h3>
+
+<p><img src="/osgeo-lesson/images/blur.png" alt="" /></p>
+
+<p>Unless explicitly calculating geometric attributes on a curved surface, the projection used will affect the result of any such calculations. For a “planar” calculation of the area of the USA, for example, different projections give different results.</p>
+
+<p class="ToS"><a href="#/slides/distortion">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/conclude"></a></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>The open source stack has two essential libraries at the bottom: GDAL of reading, writing and translating raster and vector data, and GEOS for geometric calculations on vector data.</p>
+
+<p>We will move up the stack to software interacting with these libraries in the next lesson, but the command line utilities offered by GDAL are available for batch processing of spatial data using a shell script.</p>
+
+<p>Projections distort the world - be aware of the spatial reference system your spatial data employ. If possible, find spatial data in an appropriate PCS for your analysis or convert unprojected data with a known GCS to an appropriate PCS.</p>
+
+<p class="ToS"><a href="#/slides/conclude">Top of Section</a></p>
+
+<hr />
+
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
