@@ -8,7 +8,7 @@ GEOS works on vectors, also known as geometric objects, and adds advanced GIS fu
 Like GDAL, GEOS is primarily intended to be a library used by other software.
 Unlike GDAL, GEOS does not provide its own collection of command line utilities (like `gdalinfo`).
 
-<!--split-->
+===
 
 One piece of software using GEOS is PostgreSQL with the PostGIS extension.
 
@@ -16,7 +16,7 @@ Log back into <http://pgstudio.research.sesync.org>
 
 ![]({{ site.baseurl }}/images/pgstudio-login.png)
 
-<!--split-->
+===
 
 In the SQL window we can execute PostGIS functions that rely on the GEOS libary.
 A simple example is the function `ST_Length`, where ST indicates the function accepts spatial types as arguments.
@@ -34,7 +34,7 @@ SELECT ST_Length(ST_GeomFromText('LINESTRING(0 0, 1 1)'));
 ~~~
 {:.output}
 
-<!--split-->
+===
 
 A very common vector operation in spatial analysis is to create a buffer around a spatial object.
 
@@ -53,7 +53,7 @@ POLYGON((1 0, 0 -1, -1 0, 0 1, 1 0))
 Exercise
 : Calculate an approximation to Pi, the ratio of a circle's circumference to its diamter,  using GEOS functionality built into PostGIS. The function `ST_Perimeter` gives you the length of the perimiter of a polygon.
 
-<!--split-->
+===
 
 Naturally, this is all more interesting with actual data.
 

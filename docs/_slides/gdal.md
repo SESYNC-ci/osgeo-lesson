@@ -18,7 +18,7 @@ Supported Formats:
 ~~~
 {:.output}
 
-<!--split-->
+===
 
 For historical reasons `gdal*` commands work with rasters, and `ogr*` commands work with vectors.
 
@@ -36,7 +36,7 @@ Supported Formats:
 ~~~
 {:.output}
 
-<!--split-->
+===
 
 ### Looking at Metadata (Rasters)
 
@@ -88,7 +88,7 @@ Band 3 Block=256x256 Type=Byte, ColorInterp=Blue
 ~~~
 {:.output}
 
-<!--split-->
+===
 
 ### Looking at Metadata (Vectors)
 
@@ -129,7 +129,7 @@ area_sqkm: Real (13.3)
 ~~~
 {:.output}
 
-<!--split-->
+===
 
 ### Translation
 
@@ -146,7 +146,7 @@ gdal_translate -a_srs WGS84 -a_ullr -180 90 180 -90 world.png geoworld.tif
 Question
 : Compare the output of `gdalinfo` for the original `world.png` and new `geoworld.tif` raster files. What did the "corner coordinates" property of the PNG file correspond to before translation? And after translation?
 
-<!--split-->
+===
 
 The spatial data processing tools provided by GDAL are executed by giving "arguments" to the gdal_translate, which take the form `-flag param1 param2 ...`, which is how most command line utilities work.
 
@@ -157,7 +157,7 @@ gdal_translate -outsize 10% 10% geoworld.tif geoworld-small.tif
 ~~~
 {:.input}
 
-<!--split-->
+===
 
 The flag `-projwin` takes four parameters that specify the new corners of the output file, giving a subwindow of the input file.
 
@@ -172,7 +172,7 @@ Exercise
 Question
 : Why bother with this approach over cropping the image with an image editor?
 
-<!--split-->
+===
 
 ### Conversion
 

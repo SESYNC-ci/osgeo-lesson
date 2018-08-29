@@ -14,7 +14,7 @@ A prime meridian
 A datum
 : An apprimation to the shape of the earth's surface **and** where (in the GCS being defined) certain fixed positions are located. A spheroid (a flattish sphere) is used to approximate this shape, and the reference positions anchor its surface to known points.
 
-<!--split-->
+===
 
 ### Spheroids and Geoids
 
@@ -24,7 +24,7 @@ A datum
 
 - The geoid is related to a spheroid by it's height, which can be either positive or negative, on a straight line perpendicular to the spheroid. Note that this height is not the height of the ground, or elevation.
 
-<!--split-->
+===
 
 ### Spheroids and Geoids
 
@@ -36,7 +36,7 @@ Although highly exaggerated, this graphic illustrates that the earth itself (the
 Spheroids create a totally smooth surface across the world, but because this does not reflect reality very well, this ability of a local datum to incorporate local variations in elevation is important.
 </aside>
 
-<!--split-->
+===
 
 ### Datum
 

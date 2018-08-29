@@ -12,13 +12,13 @@ Four spatial properties subject to distortion in PCS:
 - distance
 - direction
 
-<!--split-->
+===
 
 The most recognizable distortion is the result of treating latitude and longitude values as if they were the "x" and "y" values of a projected coordinate system.
 
 ![]({{ site.baseurl }}/images/circle.png)
 
-<!--split-->
+===
 
 ### Choose Projections Wisely!
 
@@ -31,7 +31,7 @@ The most recognizable distortion is the result of treating latitude and longitud
 
 ![]({{ site.baseurl }}/images/preserve.png)
 
-<!--split-->
+===
 
 ### Projections that Preserve Shape
 
@@ -50,7 +50,7 @@ Navigation charts (for plotting course bearings and wind direction)
 Weather maps (for showing the local direction in which weather systems are moving)
 </aside>
 
-<!--split-->
+===
 
 ### Projections that Preserve Area
 
@@ -64,7 +64,7 @@ Equal-area projection: the size of any area on the map is in true proportion to 
 For localized measures, use local UTM: Universal Transverse Mercator is one of the most common nearly-global projected coordinate systems. The system divides the globe into 60 zones every six degrees of longitude. These zones run from pole to pole. Each zone has its own projection parameters to maximize accuracy. East-west measurements are made in meters from an origin local to the specific zone called the central meridian. North-south measurements are made in meters from the equator.
 </aside>
 
-<!--split-->
+===
 
 ### How does this impact your spatial analysis?
 

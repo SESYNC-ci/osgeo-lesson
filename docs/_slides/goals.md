@@ -8,7 +8,7 @@
 - Compare geographic and projected coordinate systems
 - Understand distortion in projected data
 
-<!--split-->
+===
 
 ## Specific achievements
 

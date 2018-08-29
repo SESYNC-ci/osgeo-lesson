@@ -1,6 +1,10 @@
 ---
 ---
 
+GIS software is designed to capture, manage, analyze, and display (on a map!) all forms of geographically referenced information. Before diving deep into software, we review basic concepts for geographical data and the associated open source tools.
+
+===
+
 ## Geographical Data
 
 Breaking down these uses of GIS, we find the usual components of any data driven project. The strong emphais on *geographical* marks the special attention that spatial attributes of data require.
@@ -10,7 +14,7 @@ Breaking down these uses of GIS, we find the usual components of any data driven
 | **analyze** | rely on the inherent spatial relationships between data              |
 | **display** | conveniently display data in its native form (on a map!)             |
 
-<!--split-->
+===
 
 ### So What?
 
@@ -24,14 +28,14 @@ It massively underestimated the reach of the North Korean missile designs.
 The corrected version is shown below, using the proper interpretation of the same missile-ranges.
 </aside>
 
-<!--split-->
+===
 
 ![]({{ site.baseurl }}/images/korea-right.png)  
 *[Source][korea]*
 
 [korea]: http://spatial.ly/2011/01/geographical-mistakes-keeping-geographers-busy/
 
-<!--split-->
+===
 
 ### Why Open Source
 

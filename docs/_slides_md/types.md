@@ -11,7 +11,7 @@
 | bands      | attributes |
 {:.table}
   
-<!--split-->
+===
 
 ### Raster File Formats
 
@@ -20,7 +20,7 @@
 
 Some raster formats are generic image formats, and can be opened with a system image viewer or inserted into documents as images.
 
-<!--split-->
+===
 
 ### Vector File Formats
 

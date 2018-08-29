@@ -1,18 +1,17 @@
 # Site
 
-title: Open Source Geospatial Data Libraries
+title: The Landscape of Spatial Data Tools
 handouts:
-tag: v0.0
+tag: v0.1
 lesson: 0
 instructor:
-  - Ian Carroll
+  - Kelly Hondula
 authors:
   - Ian Carroll
  
 # Slides
 
 slide_sorter:
-  - title
   - intro
   - goals
   - types

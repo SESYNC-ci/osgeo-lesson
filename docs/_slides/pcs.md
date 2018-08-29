@@ -7,7 +7,7 @@
 - Unlike a geographic coordinate system, a projected coordinate system has constant lengths, angles, and areas across the two dimensions. 
 - If you allow height above the flat surface, then you can locate any point in three dimensions with x, y, and z coordinates (these are not coordinates in Space!)
 
-<!--split-->
+===
 
 A projected coordinate system is defined by four components:
 
@@ -19,7 +19,7 @@ A projected coordinate system is defined by four components:
 Question
 : What GCS is used in `westernfires_vir_2015231_geo.tif`? What is the map projection?
 
-<!--split-->
+===
 
 ### Why use a projected coordinate system?
 
@@ -29,7 +29,7 @@ Question
 
 - You are making a small-scale map such as a national or world map. With a small-scale map, your choice of map projection determines the overall appearance of the map. For example, with some projections, lines of latitude and longitude will appear curved; with others, they will appear straight.
 
-<!--split-->
+===
 
 ### Map Projections
 
@@ -39,7 +39,7 @@ Converts the earth's three-dimensional surface to a map's two-dimensional surfac
 ![]({{ site.baseurl }}/images/projections.png){:width="45%"}
 {:.vertical-align}
 
-<!--split-->
+===
 
 Using GDALs ability to re-project raster images with `gdalwarp`, let's compare two rasters.
 
