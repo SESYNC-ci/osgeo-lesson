@@ -24,7 +24,7 @@ A simple example is the function `ST_Length`, where ST indicates the function ac
 ~~~
 SELECT ST_Length(ST_GeomFromText('LINESTRING(0 0, 1 1)'));
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
     st_length
@@ -41,7 +41,7 @@ A very common vector operation in spatial analysis is to create a buffer around 
 ~~~
 SELECT ST_AsText(ST_Buffer(ST_GeomFromText('POINT(0 0)'), 1, 1));
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
     st_astext_
@@ -65,7 +65,7 @@ ON ST_Intersects(
     ST_Buffer(restaurants.geom, 100), highways.geom)
 WHERE feature like '%Toll Road';
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
  id   |        st_astext

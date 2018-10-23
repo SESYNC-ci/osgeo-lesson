@@ -46,15 +46,15 @@ Using GDALs ability to re-project raster images with `gdalwarp`, let's compare t
 ~~~
 gdalsrsinfo -o wkt urban-areas.tif > urban-area.prj
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
 gdalwarp -t_srs urban-areas.prj westernfires_vir_2015231_geo.tif westernfires_vir_2015231_geo-prj.tif
 gdalinfo westernfires_vir_2015231_geo-prj.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
 gdal_translate -projwin -139.2611826 57.8698551 -80.7311826 22.2398551 urban-areas.tif urban-areas-west.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}

@@ -53,4 +53,4 @@ Question:
 ~~~
 gdalinfo natural-earth.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}

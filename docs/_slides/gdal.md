@@ -25,7 +25,7 @@ For historical reasons `gdal*` commands work with rasters, and `ogr*` commands w
 ~~~
 ogrinfo --formats
 ~~~
-{:.input}
+{:.input title="Terminal"}
 ~~~
 
 Supported Formats:
@@ -45,7 +45,7 @@ cd %sandbox%
 cd data
 gdalinfo natural-earth.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 [//]: # " http://www.naturalearthdata.com/downloads/10m-natural-earth-1/10m-natural-earth/ "
 [//]: # " processed with: "
@@ -95,7 +95,7 @@ Band 3 Block=256x256 Type=Byte, ColorInterp=Blue
 ~~~
 ogrinfo -ro -so ne_10m_urban_areas
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
 INFO: Open of `ne_10m_urban_areas'
@@ -107,7 +107,7 @@ INFO: Open of `ne_10m_urban_areas'
 ~~~
 ogrinfo -ro -so ne_10m_urban_areas ne_10m_urban_areas
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ~~~
 INFO: Open of `ne_10m_urban_areas'
@@ -141,7 +141,7 @@ Write metadata about a raster object that is missing from the `world.png` raster
 ~~~
 gdal_translate -a_srs WGS84 -a_ullr -180 90 180 -90 world.png geoworld.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 Question
 : Compare the output of `gdalinfo` for the original `world.png` and new `geoworld.tif` raster files. What did the "corner coordinates" property of the PNG file correspond to before translation? And after translation?
@@ -155,7 +155,7 @@ The flag `-outsize` takes two parameters for the horizontal and vertical output 
 ~~~
 gdal_translate -outsize 10% 10% geoworld.tif geoworld-small.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 ===
 
@@ -164,7 +164,7 @@ The flag `-projwin` takes four parameters that specify the new corners of the ou
 ~~~
 gdal_translate -projwin -180 90 0 0 geoworld.tif geonw.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 Exercise
 : Choose coordinates that bound your home state or country, and create a new file called `natural-earth-home.tif` that only includes that area of the `natural-earth.tif`. The order of parameters is upper left "x", upper left "y", lower right "x", lower right "y".
@@ -181,7 +181,7 @@ Here's a handy little utility. Ever want to quickly peek at a shapefile? Why not
 ~~~
 gdal_rasterize -ot Byte -burn 255 -tr 0.01 0.01 -l ne_10m_urban_areas ne_10m_urban_areas urban-areas.tif
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 Exercise
 : Examin the metadata of `urban-areas.tif` using the `-stats` flag. This provides additional information, but does it look right? `gdal_rasterize` is very literal, it set polygons to 255 and everything else to 0, whereas areas outside the polygons might be more appropriately set to "Null". [Read the docs](http://www.gdal.org/gdalinfo.html) to decide how it can be done. Try to re-create the raster so that the mean value is 255.
