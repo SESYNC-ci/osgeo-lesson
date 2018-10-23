@@ -8,7 +8,7 @@ GDAL interprets between a vast collection of storage formats and applications th
 ~~~
 gdalinfo --formats
 ~~~
-{:.input}
+{:.input title="Terminal"}
 ~~~
 Supported Formats:
   VRT (rw+v): Virtual Raster
