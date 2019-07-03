@@ -1,0 +1,18 @@
+title: The Landscape of Spatial Data Tools
+handouts:
+tag: v0.1
+lesson: 0
+instructor:
+  - Kelly Hondula
+authors:
+  - Ian Carroll
+sorter:
+  - intro
+  - goals
+  - types
+  - gdal
+  - geos
+  - gcs
+  - pcs
+  - distortion
+  - conclude

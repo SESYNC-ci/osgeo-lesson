@@ -28,7 +28,7 @@ A datum
 
 ### Spheroids and Geoids
 
-![]({{ site.baseurl }}/images/spheroid.png)
+![]({% include asset.html path="images/spheroid.png" %})
 
 <aside class="notes">
 Although highly exaggerated, this graphic illustrates that the earth itself (the black line) is irregularly shaped. The blue spheroid works well in two areas, but not over the entire surface of the earth. The red spheroid works well in only one area, but it may be a better fit there than the blue spheroid. With the advent of global positioning systems (GPS), new datums and ellipsoids have been developed for the entire globe. 

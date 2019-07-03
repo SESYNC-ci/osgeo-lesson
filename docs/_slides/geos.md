@@ -14,7 +14,7 @@ One piece of software using GEOS is PostgreSQL with the PostGIS extension.
 
 Log back into <http://pgstudio.research.sesync.org>
 
-![]({{ site.baseurl }}/images/pgstudio-login.png)
+![]({% include asset.html path="images/pgstudio-login.png" %})
 
 ===
 

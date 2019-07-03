@@ -16,7 +16,7 @@ Four spatial properties subject to distortion in PCS:
 
 The most recognizable distortion is the result of treating latitude and longitude values as if they were the "x" and "y" values of a projected coordinate system.
 
-![]({{ site.baseurl }}/images/circle.png)
+![]({% include asset.html path="images/circle.png" %})
 
 ===
 
@@ -29,7 +29,7 @@ The most recognizable distortion is the result of treating latitude and longitud
 | Equidistant | Distance between one or two foci and every other point |
 | Azimuthal   | Direction from one of two points to every other point  |
 
-![]({{ site.baseurl }}/images/preserve.png)
+![]({% include asset.html path="images/preserve.png" %})
 
 ===
 
@@ -68,6 +68,6 @@ For localized measures, use local UTM: Universal Transverse Mercator is one of t
 
 ### How does this impact your spatial analysis?
 
-![]({{ site.baseurl }}/images/blur.png)
+![]({% include asset.html path="images/blur.png" %})
 
 Unless explicitly calculating geometric attributes on a curved surface, the projection used will affect the result of any such calculations. For a "planar" calculation of the area of the USA, for example, different projections give different results.

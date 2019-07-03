@@ -35,8 +35,8 @@ Question
 
 Converts the earth's three-dimensional surface to a map's two-dimensional surface. This mathematical transformation is commonly referred to as a map projection. 
 
-![]({{ site.baseurl }}/images/orange.png){:width="45%"}
-![]({{ site.baseurl }}/images/projections.png){:width="45%"}
+![]({% include asset.html path="images/orange.png" %}){:width="45%"}
+![]({% include asset.html path="images/projections.png" %}){:width="45%"}
 {:.vertical-align}
 
 ===

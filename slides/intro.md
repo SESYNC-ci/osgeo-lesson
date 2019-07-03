@@ -18,7 +18,7 @@ Breaking down these uses of GIS, we find the usual components of any data driven
 
 ### So What?
 
-![]({{ site.baseurl }}/images/korea-wrong.png)  
+![]({% include asset.html path="images/korea-wrong.png" %})  
 *[Source][korea]*
 
 <aside class="notes">
@@ -30,7 +30,7 @@ The corrected version is shown below, using the proper interpretation of the sam
 
 ===
 
-![]({{ site.baseurl }}/images/korea-right.png)  
+![]({% include asset.html path="images/korea-right.png" %})  
 *[Source][korea]*
 
 [korea]: http://spatial.ly/2011/01/geographical-mistakes-keeping-geographers-busy/

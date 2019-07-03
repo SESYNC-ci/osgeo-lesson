@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +12,7 @@
     <title>The Landscape of Spatial Data Tools</title>
     <meta name="description" content="Introduction to the principles, and the open source stack, underlying geospatial analysis.">
     
-    <link rel="canonical" href="/osgeo-lesson/">
+    <link rel="canonical" href="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/">
 
     <style type="text/css">
       
@@ -594,7 +597,7 @@ table tbody > tr:nth-of-type(2n+1) {
 
 <h3 id="so-what">So What?</h3>
 
-<p><img src="/osgeo-lesson/images/korea-wrong.png" alt="" /><br />
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/korea-wrong.png" alt="" /><br />
 <em><a href="http://spatial.ly/2011/01/geographical-mistakes-keeping-geographers-busy/">Source</a></em></p>
 
 <aside class="notes">
@@ -606,7 +609,7 @@ The corrected version is shown below, using the proper interpretation of the sam
 
 <!--split-->
 
-<p><img src="/osgeo-lesson/images/korea-right.png" alt="" /><br />
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/korea-right.png" alt="" /><br />
 <em><a href="http://spatial.ly/2011/01/geographical-mistakes-keeping-geographers-busy/">Source</a></em></p>
 
 <!--split-->
@@ -917,7 +920,7 @@ Unlike GDAL, GEOS does not provide its own collection of command line utilities 
 
 <p>Log back into <a href="http://pgstudio.research.sesync.org">http://pgstudio.research.sesync.org</a></p>
 
-<p><img src="/osgeo-lesson/images/pgstudio-login.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/pgstudio-login.png" alt="" /></p>
 
 <!--split-->
 
@@ -1019,7 +1022,7 @@ WHERE feature like '%Toll Road';
 
 <h3 id="spheroids-and-geoids-1">Spheroids and Geoids</h3>
 
-<p><img src="/osgeo-lesson/images/spheroid.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/spheroid.png" alt="" /></p>
 
 <aside class="notes">
 Although highly exaggerated, this graphic illustrates that the earth itself (the black line) is irregularly shaped. The blue spheroid works well in two areas, but not over the entire surface of the earth. The red spheroid works well in only one area, but it may be a better fit there than the blue spheroid. With the advent of global positioning systems (GPS), new datums and ellipsoids have been developed for the entire globe. 
@@ -1101,8 +1104,8 @@ Spheroids create a totally smooth surface across the world, but because this doe
 
 <p>Converts the earth’s three-dimensional surface to a map’s two-dimensional surface. This mathematical transformation is commonly referred to as a map projection.</p>
 
-<p class="vertical-align"><img src="/osgeo-lesson/images/orange.png" alt="" width="45%" />
-<img src="/osgeo-lesson/images/projections.png" alt="" width="45%" /></p>
+<p class="vertical-align"><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/orange.png" alt="" width="45%" />
+<img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/projections.png" alt="" width="45%" /></p>
 
 <!--split-->
 
@@ -1144,7 +1147,7 @@ gdalinfo westernfires_vir_2015231_geo-prj.tif
 
 <p>The most recognizable distortion is the result of treating latitude and longitude values as if they were the “x” and “y” values of a projected coordinate system.</p>
 
-<p><img src="/osgeo-lesson/images/circle.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/circle.png" alt="" /></p>
 
 <!--split-->
 
@@ -1177,7 +1180,7 @@ gdalinfo westernfires_vir_2015231_geo-prj.tif
   </tbody>
 </table>
 
-<p><img src="/osgeo-lesson/images/preserve.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/preserve.png" alt="" /></p>
 
 <!--split-->
 
@@ -1220,7 +1223,7 @@ For localized measures, use local UTM: Universal Transverse Mercator is one of t
 
 <h3 id="how-does-this-impact-your-spatial-analysis">How does this impact your spatial analysis?</h3>
 
-<p><img src="/osgeo-lesson/images/blur.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sesync-ci/osgeo-lesson@v0.1/docs/images/blur.png" alt="" /></p>
 
 <p>Unless explicitly calculating geometric attributes on a curved surface, the projection used will affect the result of any such calculations. For a “planar” calculation of the area of the USA, for example, different projections give different results.</p>
 
